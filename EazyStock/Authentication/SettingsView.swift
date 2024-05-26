@@ -6,13 +6,37 @@
 //
 
 import SwiftUI
+class SettingsViewModel: ObservableObject {
 
+    func logOut() throws {
+        try AuthenticationManager.shared.logOut()
+    }
+}
 struct SettingsView: View {
+
+    @StateObject private var viewModel = SettingsViewModel()
+    @Binding var showSignView: Bool
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Button("Sair") {
+                Task {
+                    do {
+                        try viewModel.logOut()
+                        showSignView = true
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+
+        }
+        .navigationTitle("Configurações")
     }
 }
 
-#Preview {
-    SettingsView()
-}
+//#Preview {
+//    NavigationStack {
+//        SettingsView()
+//    }
+//}
