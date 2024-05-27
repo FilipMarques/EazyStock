@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ListItensView.swift
 //  EazyStock
 //
 //  Created by Filipe Camargo Marques on 25/05/24.
@@ -57,7 +57,7 @@ struct ListItensView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ListItensView_Previews: PreviewProvider {
     static var previews: some View {
         ListItensView()
     }

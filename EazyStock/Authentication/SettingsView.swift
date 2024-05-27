@@ -11,6 +11,7 @@ class SettingsViewModel: ObservableObject {
     func logOut() throws {
         try AuthenticationManager.shared.logOut()
     }
+
 }
 struct SettingsView: View {
 
@@ -19,6 +20,10 @@ struct SettingsView: View {
 
     var body: some View {
         List {
+            NavigationLink(destination: ListItensView()) {
+                Text("Ver Itens")
+            }
+
             Button("Sair") {
                 Task {
                     do {
@@ -29,14 +34,15 @@ struct SettingsView: View {
                     }
                 }
             }
+            .foregroundColor(Color.red)
 
         }
-        .navigationTitle("Configurações")
+        .navigationTitle("Home")
     }
 }
 
-//#Preview {
-//    NavigationStack {
-//        SettingsView()
-//    }
-//}
+#Preview {
+    NavigationStack {
+        SettingsView(showSignView: .constant(false))
+    }
+}

@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7F17FACA2C024262008ABE86 /* EazyStockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17FAC92C024262008ABE86 /* EazyStockApp.swift */; };
-		7F17FACC2C024262008ABE86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17FACB2C024262008ABE86 /* ContentView.swift */; };
+		7F17FACC2C024262008ABE86 /* ListItensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17FACB2C024262008ABE86 /* ListItensView.swift */; };
 		7F17FACE2C024264008ABE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F17FACD2C024264008ABE86 /* Assets.xcassets */; };
 		7F17FAD12C024264008ABE86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F17FAD02C024264008ABE86 /* Preview Assets.xcassets */; };
+		7FC8420D2C03F2D300968C99 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC8420C2C03F2D300968C99 /* FirebaseFirestore */; };
+		7FC842112C04018D00968C99 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC842102C04018D00968C99 /* EditItemView.swift */; };
 		7FDAAE9A2C037A12008C39C4 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAAE992C037A12008C39C4 /* ItemViewModel.swift */; };
 		7FDAAE9C2C037A2E008C39C4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAAE9B2C037A2E008C39C4 /* Item.swift */; };
 		7FDAAE9E2C037A6D008C39C4 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAAE9D2C037A6D008C39C4 /* AddItemView.swift */; };
@@ -29,9 +31,10 @@
 /* Begin PBXFileReference section */
 		7F17FAC62C024262008ABE86 /* EazyStock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EazyStock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F17FAC92C024262008ABE86 /* EazyStockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EazyStockApp.swift; sourceTree = "<group>"; };
-		7F17FACB2C024262008ABE86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7F17FACB2C024262008ABE86 /* ListItensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItensView.swift; sourceTree = "<group>"; };
 		7F17FACD2C024264008ABE86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F17FAD02C024264008ABE86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7FC842102C04018D00968C99 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		7FDAAE992C037A12008C39C4 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		7FDAAE9B2C037A2E008C39C4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7FDAAE9D2C037A6D008C39C4 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FDAAEA72C03826D008C39C4 /* FirebaseAnalyticsSwift in Frameworks */,
+				7FC8420D2C03F2D300968C99 /* FirebaseFirestore in Frameworks */,
 				7FDAAEAA2C038759008C39C4 /* FirebaseAuth in Frameworks */,
 				7FDAAEA52C03826D008C39C4 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -78,13 +82,9 @@
 		7F17FAC82C024262008ABE86 /* EazyStock */ = {
 			isa = PBXGroup;
 			children = (
-				7FDAAEAB2C0387D8008C39C4 /* Authentication */,
 				7F17FAC92C024262008ABE86 /* EazyStockApp.swift */,
-				7F17FACB2C024262008ABE86 /* ContentView.swift */,
-				7FDAAE992C037A12008C39C4 /* ItemViewModel.swift */,
-				7FDAAE9B2C037A2E008C39C4 /* Item.swift */,
-				7FDAAE9D2C037A6D008C39C4 /* AddItemView.swift */,
-				7FDAAE9F2C037A8C008C39C4 /* ItemDetailView.swift */,
+				7FDAAEAB2C0387D8008C39C4 /* Authentication */,
+				7FC842122C04045200968C99 /* Item */,
 				7FDAAEA12C038122008C39C4 /* GoogleService-Info.plist */,
 				7F17FACD2C024264008ABE86 /* Assets.xcassets */,
 				7F17FACF2C024264008ABE86 /* Preview Content */,
@@ -98,6 +98,19 @@
 				7F17FAD02C024264008ABE86 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7FC842122C04045200968C99 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				7F17FACB2C024262008ABE86 /* ListItensView.swift */,
+				7FDAAE992C037A12008C39C4 /* ItemViewModel.swift */,
+				7FC842102C04018D00968C99 /* EditItemView.swift */,
+				7FDAAE9D2C037A6D008C39C4 /* AddItemView.swift */,
+				7FDAAE9B2C037A2E008C39C4 /* Item.swift */,
+				7FDAAE9F2C037A8C008C39C4 /* ItemDetailView.swift */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		7FDAAEA82C038759008C39C4 /* Frameworks */ = {
@@ -139,6 +152,7 @@
 				7FDAAEA42C03826D008C39C4 /* FirebaseAnalytics */,
 				7FDAAEA62C03826D008C39C4 /* FirebaseAnalyticsSwift */,
 				7FDAAEA92C038759008C39C4 /* FirebaseAuth */,
+				7FC8420C2C03F2D300968C99 /* FirebaseFirestore */,
 			);
 			productName = EazyStock;
 			productReference = 7F17FAC62C024262008ABE86 /* EazyStock.app */;
@@ -200,9 +214,10 @@
 			files = (
 				7FDAAEA02C037A8C008C39C4 /* ItemDetailView.swift in Sources */,
 				7FDAAE9C2C037A2E008C39C4 /* Item.swift in Sources */,
-				7F17FACC2C024262008ABE86 /* ContentView.swift in Sources */,
+				7F17FACC2C024262008ABE86 /* ListItensView.swift in Sources */,
 				7FDAAEB12C038D2E008C39C4 /* AuthenticationManager.swift in Sources */,
 				7FDAAEB32C039517008C39C4 /* RootView.swift in Sources */,
+				7FC842112C04018D00968C99 /* EditItemView.swift in Sources */,
 				7FDAAEAF2C038A0F008C39C4 /* SignInEmailView.swift in Sources */,
 				7FDAAEAD2C038806008C39C4 /* AuthenticationView.swift in Sources */,
 				7F17FACA2C024262008ABE86 /* EazyStockApp.swift in Sources */,
@@ -427,6 +442,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7FC8420C2C03F2D300968C99 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FDAAEA32C03826D008C39C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		7FDAAEA42C03826D008C39C4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7FDAAEA32C03826D008C39C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
